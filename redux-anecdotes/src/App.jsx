@@ -17,10 +17,12 @@ const App = () => {
     dispatch(addVote(id))
   }
 
+  const amountOfVotesSorter = (a, b) => b.votes - a.votes
+
   return (
     <div>
       <h2>Anecdotes</h2>
-      {anecdotes.map(anecdote =>
+      {anecdotes.sort(amountOfVotesSorter).map(anecdote =>
         <div key={anecdote.id}>
           <div>
             {anecdote.content}
